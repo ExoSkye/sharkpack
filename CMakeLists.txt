@@ -6,3 +6,5 @@ set(CMAKE_C_STANDARD 11)
 include(asan.cmake)
 include(src/backends/backends.cmake)
 
+add_executable(sharkpack_compressor tools/compressor/main.c)
+target_link_libraries(sharkpack_compressor PUBLIC ${COMPRESSION_BACKEND_LIB})
