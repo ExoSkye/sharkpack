@@ -6,9 +6,9 @@ set(SHARKPACK_COMPRESSION_BACKEND_NAMES)
 set(SHARKPACK_MM_BACKEND_PATHS)
 set(SHARKPACK_MM_BACKEND_NAMES)
 
-macro(register_backend name path type)
+macro(register_backend name type)
     string(TOUPPER ${type} upper_type)
-    list(APPEND SHARKPACK_${upper_type}_BACKEND_PATHS ${path})
+    list(APPEND SHARKPACK_${upper_type}_BACKEND_PATHS ${CMAKE_CURRENT_LIST_FILE})
     list(APPEND SHARKPACK_${upper_type}_BACKEND_NAMES ${name})
 
     message(STATUS "Successfully registered ${type} backend `${name}`")
