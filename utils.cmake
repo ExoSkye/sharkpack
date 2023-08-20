@@ -1,0 +1,10 @@
+include(CheckIPOSupported)
+
+function(turn_on_lto target_name)
+    if (CMAKE_BUILD_TYPE STREQUAL "Release")
+        check_ipo_supported(RESULT LTO_SUPPORT OUTPUT error)
+        if (LTO_SUPPORT)
+            set_target_properties(${target_name} PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
+        endif()
+    endif()
+endfunction()
